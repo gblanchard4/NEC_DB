@@ -1,0 +1,9 @@
+{% if patients_by_id %}
+    <ul>
+    {% for patient in patients_by_id %}
+        <li><a href="/patients/{{ patient.patientid }}/">{{ patient.patientid }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Patients are available.</p>
+{% endif %}

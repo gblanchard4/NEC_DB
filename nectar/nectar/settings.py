@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -21,6 +22,22 @@ SECRET_KEY = '&zhppp%&szt#=fr0#&0a$7*_$kkxrhlawlo1ga$csrfg_fqrfm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 TEMPLATE_DEBUG = True
 
@@ -61,10 +78,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'nec' ,
-        'USER' : 'postgresql',
-        'PASSWORD' : 'postgresql',
-        'HOST' : 'localhost',
-        'PORT' : ''
+        # 'USER' : 'postgresql',
+        # 'PASSWORD' : 'postgresql',
+        # 'HOST' : 'localhost',
+        # 'PORT' : ''
     }
 }
 

@@ -1,0 +1,31 @@
+<h1>{{ patient.patientid}}</h1>
+<ul>
+	<li>Date of Birth</li>
+	<ul><li>{{ patient.dob }}</li></ul>
+	<li>Race </li>
+	<ul><li>{{ patient.race }}</li></ul>
+	<li>Gestational Age</li>
+	<ul><li>{{ patient.gestational_age }}</li></ul>
+	<li>Birth Weight</li>
+	<ul><li>{{ patient.birth_weight }}</li></ul>
+	<li>Weight Gestational Age Apropriate</li>
+	<ul><li>{{ patient.weight_gestational_age_aprop }}</li></ul>
+	<li>Delivery Method</li>
+	<ul><li>{{ patient.delivery }}</li></ul>
+	<li>Apgar Score</li>
+	<ul><li>{{ patient.apgar_1 }}/{{ patient.apgar_2 }}</li></ul>
+	<li>Resuscitation</li>
+	<ul><li>{{ patient.resusc }}</li></ul>
+	<li>ROM</li>
+	<ul><li>{{ patient.rom }}</li></ul>
+	<li>Maternal HX</li>
+	<ul><li>{{ patient.matHX }}</li></ul>
+	<li>Maternal Medicine</li>
+	<ul><li>{{ patient.matMed }}</li></ul>
+	<li>Stool Samples</li>
+	<ul>
+		{% for sample in stool %}
+		<li> {{sample.date}} </li>
+		{% endfor %}
+	</ul>
+</ul>	
