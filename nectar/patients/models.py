@@ -94,17 +94,19 @@ class Stool(models.Model):
     dol = property(_get_dol)
 
 class Environment(models.Model):
-    FREZER_CHOICES = (
-        ('S','Shelf'),
-        ('R','Rack'),
-        ('B','Box')
-    )
+
+
+    RACK_CHOICES = zip( range(0,5), range(0,5))
+    BOX_CHOICES = zip( range(0,5), range(0,5))
+
     patientid = models.ForeignKey(Patient)
     date =  models.DateField(verbose_name="Sample Date")
     crib = models.CharField(max_length=100, verbose_name="Crib")
     room = models.CharField(max_length=5,verbose_name="Room")
     neg_pressure = models.BooleanField(default=False, verbose_name="Negative Pressure")
-    freezer_location = models.CharField(max_length=1, choices=FREZER_CHOICES, verbose_name="Freezer Location")
+    shelf = models.CharField(max_length=2, verbose_name="Shelf Location")
+    rack = models.CharField(max_length=1, choices=RACK_CHOICES, verbose_name="Rack Location")
+    box = models.CharField(max_length=1, choices=BOX_CHOICES, verbose_name="Box Location")
     sequence_available = models.BooleanField(default=False, verbose_name="Sequece Available")
     sequence_file = models.CharField(max_length=30, verbose_name="Sequece File Name")
 
