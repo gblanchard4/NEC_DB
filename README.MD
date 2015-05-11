@@ -25,3 +25,10 @@ You will need virtualenv installed on you machine `pip install virtualenv`
   * `Username: admin`
   * `Email address: admin@example.com`
   * Enter password
+
+ 5. Run Server
+   * `python manage.py runserver`
+
+ ## Pulling New Schemas
+ 1. `git pull` 
+ 2. `python manage.py migrate`
