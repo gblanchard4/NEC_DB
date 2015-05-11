@@ -53,7 +53,7 @@ class Patient(models.Model):
     apgar_1 = models.IntegerField(choices=APGAR_CHOICES, verbose_name="Apgar Score 1st Number")
     apgar_2 = models.IntegerField(choices=APGAR_CHOICES, verbose_name="Apgar Score 2nd Number")
     resusc = models.CharField(max_length=1, choices=RESUSC_CHOICES, verbose_name="Resuscitation")
-    rom = models.IntegerField(verbose_name="ROM")
+    rom = models.IntegerField(verbose_name="ROM in Hours")
     matHX = models.CharField(max_length=200, verbose_name="Maternal HX")
     matMed = models.CharField(max_length=200, verbose_name="Maternal Medicine")
  
