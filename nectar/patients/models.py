@@ -14,13 +14,8 @@ class Patient(models.Model):
     )
 
     GESTATIONAL_APROP_CHOICES = (
-        ('A', 'A'),
         ('AGA', 'AGA'),
-        ('IUGR', 'IUGR'),
-        ('L', 'L'),
         ('LGA', 'LGA'),
-        ('S', 'S'),
-        ('SIUGR', 'S(IUGR)'),
         ('SGA', 'SGA'),
         ('SGAIUGR', 'SGA/IUGR')
     )
