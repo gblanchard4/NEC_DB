@@ -104,9 +104,9 @@ class Environment(models.Model):
     crib = models.CharField(max_length=100, verbose_name="Crib")
     room = models.CharField(max_length=5,verbose_name="Room")
     neg_pressure = models.BooleanField(default=False, verbose_name="Negative Pressure")
-    shelf = models.CharField(max_length=2, verbose_name="Shelf Location")
-    rack = models.CharField(max_length=1, choices=RACK_CHOICES, verbose_name="Rack Location")
-    box = models.CharField(max_length=1, choices=BOX_CHOICES, verbose_name="Box Location")
+    shelf = models.CharField(max_length=2, verbose_name="Shelf Location", default='0')
+    rack = models.CharField(max_length=1, choices=RACK_CHOICES, verbose_name="Rack Location", default='0')
+    box = models.CharField(max_length=1, choices=BOX_CHOICES, verbose_name="Box Location", default='0')
     sequence_available = models.BooleanField(default=False, verbose_name="Sequece Available")
     sequence_file = models.CharField(max_length=30, verbose_name="Sequece File Name")
 
