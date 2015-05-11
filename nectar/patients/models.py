@@ -73,8 +73,8 @@ class Stool(models.Model):
     #day_of_life = models.IntegerField(verbose_name="Day of Life", help_text="Calcuated automagically", default=self.dol())
     uvva = models.CharField(max_length=2, choices=UVVA_CHOICES, verbose_name="UV/VA")
     feeds = models.CharField(max_length=1, choices=FEEDS_CHOICES, verbose_name="Feeding")
-    pneumo = models.DateField(blank=True, null=True, help_text="Date of onset, leave blank if none", verbose_name="Pnuemonia")
-    bollus_cont = models.CharField(max_length=1, choices=BOLLUS_CONT_CHOICES, verbose_name="Bollus/Cont")
+    pneumo = models.DateField(blank=True, null=True, help_text="Date of onset, leave blank if none", verbose_name="Pneumatosis Intestinalis")
+    bollus_cont = models.CharField(max_length=1, choices=BOLLUS_CONT_CHOICES, verbose_name="Bollus Continuous")
     full_feed = models.BooleanField(default=False, verbose_name="Full Feed")
     abx = models.DateField(verbose_name="ABX")
     h2block = models.BooleanField(default=False, verbose_name="H2 Blockers")
@@ -107,7 +107,7 @@ class Environment(models.Model):
     shelf = models.CharField(max_length=2, verbose_name="Shelf Location", default='0')
     rack = models.CharField(max_length=1, choices=RACK_CHOICES, verbose_name="Rack Location", default='0')
     box = models.CharField(max_length=1, choices=BOX_CHOICES, verbose_name="Box Location", default='0')
-    sequence_available = models.BooleanField(default=False, verbose_name="Sequece Available")
+    sequence_available = models.BooleanField(default=False, verbose_name="Sequence Available")
     sequence_file = models.CharField(max_length=30, verbose_name="Sequece File Name")
 
 
