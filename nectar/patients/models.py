@@ -13,6 +13,12 @@ class Patient(models.Model):
         ('I', 'Indian')
     )
 
+    GENDER_CHOICES = (
+        ('M', 'Male'),
+        ('F', 'Female'),
+        ('N', 'Not Set')
+    )
+
     GESTATIONAL_APROP_CHOICES = (
         ('AGA', 'AGA'),
         ('LGA', 'LGA'),
@@ -38,6 +44,7 @@ class Patient(models.Model):
 
     patientid = models.CharField(primary_key=True, max_length=30, verbose_name="Patient ID")
     dob = models.DateField(verbose_name="Date of Birth")
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, verbose_name='Gender', default='N' )
     race = models.CharField(max_length=1, choices=RACE_CHOICES, verbose_name="Race")
     gestational_age = models.IntegerField(verbose_name="Gestational Age")
     birth_weight = models.IntegerField(verbose_name="Birth Weight")
@@ -78,7 +85,7 @@ class Stool(models.Model):
     full_feed = models.BooleanField(default=False, verbose_name="Full Feed")
     abx = models.DateField(verbose_name="ABX")
     h2block = models.BooleanField(default=False, verbose_name="H2 Blockers")
-    indometh = models.BooleanField(default=False, verbose_name="Indometh")
+    indometh = models.BooleanField(default=False, verbose_name="Indomethacin")
     caffeine = models.BooleanField(default=False, verbose_name="Caffeine")
     nec = models.BooleanField(default=False, verbose_name="NEC")
 
