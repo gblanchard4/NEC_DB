@@ -78,10 +78,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'nec' ,
-        # 'USER' : 'postgresql',
-        # 'PASSWORD' : 'postgresql',
-        # 'HOST' : 'localhost',
-        # 'PORT' : ''
     }
 }
 
