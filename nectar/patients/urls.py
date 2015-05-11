@@ -8,5 +8,5 @@ urlpatterns = [
     # ex: /patients/22/
     url(r'^(?P<patientid>[0-9]+)/$', views.patient_detail, name='detail'),
     # ex: /patient/22/stool/1
-    url(r'^(?P<patientid>[0-9]+)/stool/$', views.stool_single, name='stool')
+    url(r'^(?P<patientid>[0-9]+)/stool/<$', views.stool_single, name='stool')
 ]

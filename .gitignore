@@ -1,6 +1,8 @@
 .nfs*
 sampledata/
 vm/
+nectar/nec
+env/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
