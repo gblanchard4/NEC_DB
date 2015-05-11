@@ -93,6 +93,9 @@ class Stool(models.Model):
     indometh = models.BooleanField(default=False, verbose_name="Indomethacin")
     caffeine = models.BooleanField(default=False, verbose_name="Caffeine")
     nec = models.BooleanField(default=False, verbose_name="NEC")
+    sequence_available = models.BooleanField(default=False, verbose_name="Sequence Available")
+    sequence_file = models.CharField(max_length=60, verbose_name="Sequece File Name", blank=True)
+
 
     def __str__(self):              # __unicode__ on Python 2
         return str(self.patient.patientid+self.date.__str__())
@@ -120,4 +123,4 @@ class Environment(models.Model):
     rack = models.CharField(max_length=1, choices=RACK_CHOICES, verbose_name="Rack Location", default='0')
     box = models.CharField(max_length=1, choices=BOX_CHOICES, verbose_name="Box Location", default='0')
     sequence_available = models.BooleanField(default=False, verbose_name="Sequence Available")
-    sequence_file = models.CharField(max_length=30, verbose_name="Sequece File Name")
+    sequence_file = models.CharField(max_length=60, verbose_name="Sequece File Name", blank=True)
