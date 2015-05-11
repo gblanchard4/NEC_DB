@@ -87,8 +87,8 @@ class Stool(models.Model):
     pneumo = models.DateField(blank=True, null=True, help_text="Date of onset, leave blank if none", verbose_name="Pneumatosis Intestinalis")
     bollus_cont = models.CharField(max_length=1, choices=BOLLUS_CONT_CHOICES, verbose_name="Bollus Continuous")
     full_feed = models.BooleanField(default=False, verbose_name="Full Feed")
-    abx = models.BooleanField(verbose_name="Antibiotics")
-    abx_notes = models.TextField(verbose_name="Antibiotics Notes", default='')
+    abx = models.BooleanField(verbose_name="Antibiotics", default=False)
+    abx_notes = models.TextField(verbose_name="Antibiotics Notes", default='', blank=True)
     h2block = models.BooleanField(default=False, verbose_name="H2 Blockers")
     indometh = models.BooleanField(default=False, verbose_name="Indomethacin")
     caffeine = models.BooleanField(default=False, verbose_name="Caffeine")
@@ -101,7 +101,7 @@ class Stool(models.Model):
     def _get_dol(self):     
         dob  = Patient.objects.get(pk=self.patient).dob
         dol_value = (self.date-dob).days
-        return dol_value
+        return dol_value+1
 
     dol = property(_get_dol)
 
@@ -121,7 +121,3 @@ class Environment(models.Model):
     box = models.CharField(max_length=1, choices=BOX_CHOICES, verbose_name="Box Location", default='0')
     sequence_available = models.BooleanField(default=False, verbose_name="Sequence Available")
     sequence_file = models.CharField(max_length=30, verbose_name="Sequece File Name")
-
-
-
-
