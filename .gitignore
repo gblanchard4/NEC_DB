@@ -2,6 +2,7 @@
 sampledata/
 vm/
 nectar/nec
+nectar/migrations/*
 
 
 # Byte-compiled / optimized / DLL files
