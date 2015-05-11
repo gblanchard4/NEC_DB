@@ -29,6 +29,7 @@ You will need virtualenv installed on you machine `pip install virtualenv`
  5. Run Server
    * `python manage.py runserver`
 
- ## Pulling New Schemas
- 1. `git pull` 
- 2. `python manage.py migrate`
+## Pulling New Schemas
+1. `git pull` 
+2. `python manage.py makemigrations patients`
+3. `python manage.py migrate`
