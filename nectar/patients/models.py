@@ -76,7 +76,8 @@ class Stool(models.Model):
     )
     BOLLUS_CONT_CHOICES = (
         ('B','Bolus'),
-        ('C', 'Cont')
+        ('C', 'Cont'), 
+        ('N', 'None')
     )
     patient= models.ForeignKey(Patient)
     date =  models.DateField(verbose_name="Sample Date")
