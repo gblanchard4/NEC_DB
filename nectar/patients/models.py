@@ -69,7 +69,10 @@ class Stool(models.Model):
     )
     FEEDS_CHOICES = (
         ('F','Formula'),
-        ('B','Breast Milk')
+        ('B','Breast Milk'), 
+        ('N', 'NPO'), 
+        ('M', 'Mixed')
+
     )
     BOLLUS_CONT_CHOICES = (
         ('B','Bolus'),
