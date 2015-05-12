@@ -32,7 +32,8 @@ def index(request):
 
 def patient_detail(request, patientid):
     context ={ 'patient':Patient.objects.get(pk=patientid),
-                'stool':Stool.objects.filter(patient_id=patientid).order_by('date')
+                'stool':Stool.objects.filter(patient_id=patientid).order_by('date'),
+                'enviro':Environment.objects.filter(patientid=patientid).order_by('date')
             }
     #patient = get_object_or_404(Patient, pk=patientid)
     #return render(request, 'patients/patientdetail.html', {'patient':patient})

@@ -40,8 +40,6 @@ class Patient(models.Model):
 
     APGAR_CHOICES = zip( range(0,10), range(0,10))
 
-
-
     patientid = models.CharField(primary_key=True, max_length=30, verbose_name="Patient ID")
     dob = models.DateField(verbose_name="Date of Birth")
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, verbose_name='Gender', default='N' )
@@ -65,7 +63,7 @@ class Stool(models.Model):
     UVVA_CHOICES = (
         ('N','None'),
         ('UA','UA'),
-        ('UV','OV')
+        ('UV','UV')
     )
     FEEDS_CHOICES = (
         ('F','Formula'),
@@ -79,6 +77,9 @@ class Stool(models.Model):
         ('C', 'Cont'), 
         ('N', 'None')
     )
+    RACK_CHOICES = zip( range(0,5), range(0,5))
+    BOX_CHOICES = zip( range(0,5), range(0,5))
+
     patient= models.ForeignKey(Patient)
     date =  models.DateField(verbose_name="Sample Date")
     #day_of_life = models.IntegerField(verbose_name="Day of Life", help_text="Calcuated automagically", default=self.dol())
@@ -93,6 +94,14 @@ class Stool(models.Model):
     indometh = models.BooleanField(default=False, verbose_name="Indomethacin")
     caffeine = models.BooleanField(default=False, verbose_name="Caffeine")
     nec = models.BooleanField(default=False, verbose_name="NEC")
+    have_raw = models.BooleanField(default=False, verbose_name="Raw Stool Available")
+    raw_shelf = models.IntegerField(verbose_name="Raw Stool Shelf Location", default='0')
+    raw_rack = models.IntegerField(choices=RACK_CHOICES, verbose_name="Raw Stool Rack Location", default='0')
+    raw_box = models.IntegerField(choices=BOX_CHOICES, verbose_name="Raw Stool Box Location", default='0')
+    have_extract = models.BooleanField(default=False, verbose_name="Extracted Stool Available")
+    extract_shelf = models.IntegerField(verbose_name="Extracted Stool Shelf Location", default='0')
+    extract_rack = models.IntegerField(choices=RACK_CHOICES, verbose_name="Extracted Stool Rack Location", default='0')
+    extract_box = models.IntegerField(choices=BOX_CHOICES, verbose_name="Extracted Stool Box Location", default='0')
     sequence_available = models.BooleanField(default=False, verbose_name="Sequence Available")
     sequence_file = models.CharField(max_length=60, verbose_name="Sequece File Name", blank=True)
 
@@ -119,8 +128,9 @@ class Environment(models.Model):
     crib = models.CharField(max_length=100, verbose_name="Crib")
     room = models.CharField(max_length=5,verbose_name="Room")
     neg_pressure = models.BooleanField(default=False, verbose_name="Negative Pressure")
-    shelf = models.CharField(max_length=2, verbose_name="Shelf Location", default='0')
-    rack = models.CharField(max_length=1, choices=RACK_CHOICES, verbose_name="Rack Location", default='0')
-    box = models.CharField(max_length=1, choices=BOX_CHOICES, verbose_name="Box Location", default='0')
+    shelf = models.IntegerField(verbose_name="Shelf Location", default='0')
+    rack = models.IntegerField(choices=RACK_CHOICES, verbose_name="Rack Location", default='0')
+    box = models.IntegerField(choices=BOX_CHOICES, verbose_name="Box Location", default='0')
     sequence_available = models.BooleanField(default=False, verbose_name="Sequence Available")
     sequence_file = models.CharField(max_length=60, verbose_name="Sequece File Name", blank=True)
+    
