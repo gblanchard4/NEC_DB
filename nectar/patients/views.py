@@ -35,11 +35,12 @@ def patient_detail(request, patientid):
                 'stool':Stool.objects.filter(patient_id=patientid).order_by('date'),
                 'enviro':Environment.objects.filter(patientid=patientid).order_by('date')
             }
-    #patient = get_object_or_404(Patient, pk=patientid)
-    #return render(request, 'patients/patientdetail.html', {'patient':patient})
     return render(request, 'patients/patientdetail.html', context)
 
-def stool_detail(request, patientid):
+def stool_detail(request, stoolid):
+    context ={ 'stool':Stool.objects.get(id=stoolid)
+            }
+
     stool = get_list_or_404(Stool.objects.order_by('date'), patient_id=patientid )
     return render(request, 'patients/stooldetail.html', {'stool':stool})
 

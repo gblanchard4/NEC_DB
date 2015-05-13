@@ -10,6 +10,6 @@ from django.contrib import admin
 #     url(r'^patients/', include('patients.urls'))
 # )
 urlpatterns = [
-    url(r'^patients/', include('patients.urls')),
+    url(r'^patient/', include('patients.urls')),
     url(r'^admin/', include(admin.site.urls))
 ]
