@@ -9,7 +9,7 @@ class PatientAdmin(admin.ModelAdmin):
         }),
         (None, {
             'fields':[('birth_weight', 'gestational_age', 'weight_gestational_age_aprop'),
-                        'delivery', ('apgar_1','apgar_2'),'resusc','rom',('matHX','matMed')]
+                        'delivery', ('apgar_1','apgar_2'),'resusc','rom',('matHX','matMed'), 'siblings']
         })
     )
 

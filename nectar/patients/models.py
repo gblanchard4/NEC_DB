@@ -54,6 +54,7 @@ class Patient(models.Model):
     rom = models.IntegerField(verbose_name="ROM in Hours")
     matHX = models.CharField(max_length=200, verbose_name="Maternal HX")
     matMed = models.CharField(max_length=200, verbose_name="Maternal Medicine")
+    siblings = models.ManyToManyField("self", blank=True, verbose_name="Siblings")
  
     def __str__(self):              # __unicode__ on Python 2
         return str(self.patientid)

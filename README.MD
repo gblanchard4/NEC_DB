@@ -30,6 +30,9 @@ You will need virtualenv installed on you machine `pip install virtualenv`
    * `python manage.py runserver`
 
 ## Pulling New Schemas
+### With Changes To Models
+`python manage.py makemigrations patients`
+`python manage.py migrate`
+#### Apply my changes 
 1. `git pull` 
-2. `python manage.py makemigrations patients`
-3. `python manage.py migrate`
+2. `python manage.py migrate`
