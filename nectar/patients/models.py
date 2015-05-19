@@ -41,6 +41,7 @@ class Patient(models.Model):
     APGAR_CHOICES = zip( range(0,10), range(0,10))
 
     patientid = models.CharField(primary_key=True, max_length=30, verbose_name="Patient ID")
+    nec = models.BooleanField(default=False, verbose_name="NEC")
     dob = models.DateField(verbose_name="Date of Birth")
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, verbose_name='Gender', default='N' )
     race = models.CharField(max_length=1, choices=RACE_CHOICES, verbose_name="Race")

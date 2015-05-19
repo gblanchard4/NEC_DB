@@ -5,7 +5,7 @@ class PatientAdmin(admin.ModelAdmin):
     list_display = ('patientid', 'dob', 'gestational_age', 'birth_weight')
     fieldsets = (
         (None, {
-            'fields': ['patientid', 'dob', 'gender', 'race']
+            'fields': ['patientid', 'nec', 'dob', 'gender', 'race']
         }),
         (None, {
             'fields':[('birth_weight', 'gestational_age', 'weight_gestational_age_aprop'),
