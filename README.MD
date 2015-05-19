@@ -31,9 +31,9 @@ You will need virtualenv installed on you machine `pip install virtualenv`
 
 ## Pulling New Schemas
 ### With Changes To Models
-`python manage.py makemigrations patients`
-`python manage.py migrate`  
-
+1. `python manage.py makemigrations patients`
+2. `python manage.py migrate`  
+  
 #### Apply my changes 
 1. `git pull` 
 2. `python manage.py migrate`
