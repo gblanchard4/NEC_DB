@@ -27,10 +27,10 @@ class StoolAdmin(admin.ModelAdmin):
             'fields':[('h2block', 'indometh', 'caffeine', 'uvva'), ('abx', 'abx_notes')]
         }),
         ('Raw Sample',{
-            'fields':[('have_raw', 'raw_shelf', 'raw_rack', 'raw_box')]
+            'fields':['have_raw', ('raw_shelf', 'raw_rack', 'raw_box')]
         }),
         ('Extracted Sample',{
-            'fields':[('have_extract', 'extract_shelf', 'extract_rack', 'extract_box')]
+            'fields':['have_extract', ('extract_shelf', 'extract_rack', 'extract_box')]
         }),
         ('Sequence Information',{
             'fields':['sequence_available', 'sequence_file']
