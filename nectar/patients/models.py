@@ -62,11 +62,6 @@ class Patient(models.Model):
 
 class Stool(models.Model):
 
-    UVVA_CHOICES = (
-        ('N','None'),
-        ('UA','UA'),
-        ('UV','UV')
-    )
     FEEDS_CHOICES = (
         ('F','Formula'),
         ('B','Breast Milk'), 
@@ -85,7 +80,6 @@ class Stool(models.Model):
     patient= models.ForeignKey(Patient)
     date =  models.DateField(verbose_name="Sample Date")
     #day_of_life = models.IntegerField(verbose_name="Day of Life", help_text="Calcuated automagically", default=self.dol())
-    uvva = models.CharField(max_length=2, choices=UVVA_CHOICES, verbose_name="UV/VA")
     feeds = models.CharField(max_length=1, choices=FEEDS_CHOICES, verbose_name="Feeding")
     pneumo = models.DateField(blank=True, null=True, help_text="Date of onset, leave blank if none", verbose_name="Pneumatosis Intestinalis")
     bollus_cont = models.CharField(max_length=1, choices=BOLLUS_CONT_CHOICES, verbose_name="Bollus Continuous")
@@ -95,6 +89,7 @@ class Stool(models.Model):
     h2block = models.BooleanField(default=False, verbose_name="H2 Blockers")
     indometh = models.BooleanField(default=False, verbose_name="Indomethacin")
     caffeine = models.BooleanField(default=False, verbose_name="Caffeine")
+    uvva = models.BooleanField(default=False, verbose_name="UV/VA")
     nec = models.BooleanField(default=False, verbose_name="NEC")
     have_raw = models.BooleanField(default=False, verbose_name="Raw Stool Available")
     raw_shelf = models.IntegerField(verbose_name="Raw Stool Shelf Location", default='0')

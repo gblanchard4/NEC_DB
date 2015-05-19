@@ -18,13 +18,13 @@ class StoolAdmin(admin.ModelAdmin):
     list_display = ('patient', 'date', 'dol')
     fieldsets = (
         ('Sample Information', {
-            'fields':['patient', 'date', 'nec', 'uvva', 'pneumo']
+            'fields':['patient', 'date', 'nec', 'pneumo']
         }),
         ('Nutrition', {
             'fields':[('feeds', 'full_feed'), 'bollus_cont']
         }),
         ('Medications', {
-            'fields':[('h2block', 'indometh', 'caffeine'), ('abx', 'abx_notes')]
+            'fields':[('h2block', 'indometh', 'caffeine'), ('abx', 'abx_notes', 'uvva')]
         }),
         ('Raw Sample',{
             'fields':[('have_raw', 'raw_shelf', 'raw_rack', 'raw_box')]
