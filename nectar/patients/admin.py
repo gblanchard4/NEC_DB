@@ -24,7 +24,7 @@ class StoolAdmin(admin.ModelAdmin):
             'fields':[('feeds', 'full_feed'), 'bollus_cont']
         }),
         ('Medications', {
-            'fields':[('h2block', 'indometh', 'caffeine'), ('abx', 'abx_notes', 'uvva')]
+            'fields':[('h2block', 'indometh', 'caffeine', 'uvva'), ('abx', 'abx_notes')]
         }),
         ('Raw Sample',{
             'fields':[('have_raw', 'raw_shelf', 'raw_rack', 'raw_box')]
